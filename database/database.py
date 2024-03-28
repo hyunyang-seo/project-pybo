@@ -4,9 +4,11 @@ from sqlalchemy import Engine, create_engine, MetaData
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
+from starlette.config import Config
 
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./pybo.db"
+config = Config(".env")
+SQLALCHEMY_DATABASE_URL: str = config("SQLALCHEMY_DATABASE_URL")
 
 engine: Engine = create_engine(
     url=SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
