@@ -1,0 +1,11 @@
+.venv
+.vscode
+pybo.db
+*.pyc
+__pycache__
+migrations
+alembic.ini
+*.lock
+*.toml
+.DS_Store
+
