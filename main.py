@@ -1,4 +1,3 @@
-import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -11,7 +10,7 @@ from domain.user import user_router
 
 app = FastAPI()
 
-origins: list[str] = ["http://13.125.34.83:5173"]
+origins: list[str] = ["http://localhost:5173"]
 
 app.add_middleware(
     middleware_class=CORSMiddleware,
@@ -31,7 +30,3 @@ app.mount("/assets", StaticFiles(directory="frontend/dist/assets"))
 @app.get(path="/")
 async def index() -> FileResponse:
     return FileResponse("frontend/dist/index.html")
-
-
-if __name__ == "__main__":
-    uvicorn.run(app="main:app", host="localhost", port=8000, reload=True)
