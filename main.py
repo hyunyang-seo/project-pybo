@@ -11,7 +11,7 @@ from domain.user import user_router
 
 app = FastAPI()
 
-origins: list[str] = ["http://localhost:5173"]
+origins: list[str] = ["http://13.125.34.83:5173"]
 
 app.add_middleware(
     middleware_class=CORSMiddleware,
