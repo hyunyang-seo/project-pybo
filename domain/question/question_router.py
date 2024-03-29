@@ -40,9 +40,9 @@ async def question_detail(
 )
 async def question_list(
     db: Session = Depends(database.get_db),
-    page: int = Query(0),
-    size: int = Query(10),
-    keyword: str = Query(""),
+    page: int = 0,
+    size: int = 10,
+    keyword: str = "",
 ) -> dict[str, int | list[database_models.Question]]:
     total, _question_list = question_crud.get_question_list(
         db=db, skip=page * size, limit=size, keyword=keyword
