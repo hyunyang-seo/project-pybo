@@ -12,6 +12,7 @@ app = FastAPI()
 
 origins: list[str] = [
     "http://localhost:5173",
+    "https://localhost:5173",
     "http://3.38.35.243:5173",
     "https://3.38.35.243:5173",
     "http://3.38.35.243",
